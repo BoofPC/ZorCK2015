@@ -1,7 +1,7 @@
 class ScienceHall:
 
     if self.global_state["floor2_is_flooded"]:
-        def _init_(self,global_state,inventory):
+        def __init__(self,global_state,inventory):
             self.global_state = global_state
             self.inventory = inventory
             self.set_state()
@@ -97,6 +97,7 @@ To the north, the door that leads to Birkenfeld's room is open."""
                     print("Sorry, what was that?")
                 self.run()
 
+
         def move(self,direction):
             for key in self.state.keys():
                 self.global_state[self.name+"_"+key] = self.state[key]
@@ -112,4 +113,5 @@ To the north, the door that leads to Birkenfeld's room is open."""
                 room.run()
 
         def set_state(self):
+
             self.state = {}
