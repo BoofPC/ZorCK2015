@@ -6,37 +6,37 @@ class AdamsonRoom:
         self.name = "Adamson's Room"
         self.description = """You find yourself in a large room among many ancient machines.
 A small banner at the top of the doorway reads "The geeks shall inherit the earth."
-Threre is a very messy desk and an array of shelves toward the front of the room.
-A machine labeled "MakerBot" is found at the back of the room, along with several plastic robots.
+There is a very messy desk and an array of shelves toward the front of the room.
+A machine labelled "MakerBot" is found at the back of the room, along with several plastic robots.
 The door exits to the north."""
         # http://cougarchronicle.org/wp-content/uploads/2014/12/adamson-900x519.jpg
         print(self.description())
         self.run()
         
-    def run():
+    def run(self):
         self.route(input(">>"))
            
-    def route(command):
+    def route(self,command):
         if command in ["go north","go south","go east","go west"]:
-            move(command.split(" ")[1])
+            self.move(command.split(" ")[1])
         else:
             if command in ["examine shelves","open shelves","see shelves", "look at shelves"]:
-                examine_shelves()
+                self.examine_shelves()
             elif command in ["read book", "take book", "look at book", "examine book"]:
-                read_book()
+                self.read_book()
             elif command in ["examine bot","examine makerbot","examine maker bot","use bot","use makerbot","use maker bot"]:
-                use_bot()
+                self.use_bot()
             elif command in ["look","look around","description", "see"]:
                 print(self.description)
             else:
                 print("WAT!?")
             self.run()
 
-    def move(direction):
+    def move(self,direction):
         for key in self.state.keys():
             self.global_state[self.name+"_"+key] = self.state[key]
         if direction == "north":
-            exit() # i hope this works
+            self.exit() # i hope this works... probs
         if direction == "west":
             print("A wall prevents you from moving there!")
         if direction == "east":
@@ -44,18 +44,18 @@ The door exits to the north."""
         if direction == "south":
             print("Windows block your path.")
 
-    def set_state():
+    def set_state(self):
         self.state={}
         self.state["examined_shelves"] = False
         self.state["read_book"] = False
 
-    def examine_shelves():
+    def examine_shelves(self):
         print("""
         The shelves reveal a number of plastic figurines, along with many machine parts and books. One of the books catches your eye.
         """)
         self.state["examined_shelves"] = True
 
-    def read_book():
+    def read_book(self):
         if not self.state["examined_shelves"]:
             print("I don't see any books.")
         else:
@@ -63,7 +63,7 @@ The door exits to the north."""
 Reading the book provides you with invaluable knowledge on how to operate this 3D printer.""")
             self.state["read_book"] = True
 
-    def use_bot():
+    def use_bot(self):
         if self.state["read_book"] and not self.state["used_machine"]:
             # guess who the bald man is
             print("""
