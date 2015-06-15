@@ -5,14 +5,13 @@ class Main_Hall:
             self.global_state = global_state
             self.inventory = inventory
             self.set_state()
-            self.description = """ You are the end end of senior hall near the library.
-                               To the north there are stairs leading down to the main hall which looks flooded,
-                               to the south there is a door that leads to the ASL room,
-                               to the west is the history hall,
-                               to the east is the senior hall. Choose wisely.. """
+            self.description = "You are the end end of senior hall near the library. "
+                               "To the north there are stairs leading down to the main hall which looks flooded, "
+                               "to the south there is a door that leads to the ASL room, "
+                               "to the west is the history hall, "
+                               "to the east is the senior hall. Choose wisely..."
             print(self.description())
             self.run()
-            
 
         def run(self):
             self.route(input(">>"))
@@ -27,7 +26,7 @@ class Main_Hall:
                     print("What???")
                 self.run()
 
-        def move(direction):
+        def move(self, direction):
             for key in self.state.keys():
                 self.global_state[self.name+"_"+key] = self.state[key]
             if direction == "north":
@@ -36,9 +35,9 @@ class Main_Hall:
                 room = SeniorHall(self.global_state,self.inventory)
                 room.run()
             if direction = "south":
-                print("The doors to the ASL room seem to be locked.
-                      "You look into the window but fail to see anything."
-                      "It's too dark")
+                print("The doors to the ASL room seem to be locked. "
+                      "You look into the window but fail to see anything. "
+                      "It's too dark.")
             for it is too dark")
             if direction = "east":
                 room = HistoryHall(self.global_state,self.inventory)
@@ -50,11 +49,11 @@ class Main_Hall:
             self.global_state = global_state
             self.inventory = inventory
             self.set_state()
-            self.description = """ You are the end end of senior hall near the library.
-                               To the north there are stairs leading down to the main hall which looks flooded,
-                               to the south there is a door that leads to the ASL room,
-                               to the west is the history hall,
-                               to the east is the senior hall. Choose wisely... """
+            self.description = "You are the end end of senior hall near the library. "
+                               "To the north there are stairs leading down to the main hall which looks flooded, "
+                               "to the south there is a door that leads to the ASL room, "
+                               "to the west is the history hall, "
+                               "to the east is the senior hall. Choose wisely..."
             print(self.description())
             self.run()
 
@@ -85,7 +84,7 @@ class Main_Hall:
                 room = ArtRoom(self.global_state,self.inventory)
                 room.run()
             if direction = "east":
-                print("Hmm...there is a giant hole in the middle of the floor...it's best that you dont pass through here..")
+                print("Hmm...there is a giant hole in the middle of the floor...it's best that you dont pass through here...")
                       
                     
                       
