@@ -13,10 +13,10 @@ To the north, the door that leads to Birkenfeld's room is open."""
             print(self.description())
             self.run()
 
-        def run():
+        def run(self):
             self.route(input(">>"))
 
-        def route(command):
+        def route(self,command):
             if command in ["go north","go east","go west","go south"]:
                 move(command.split(" ")[1])
             else:
@@ -33,7 +33,7 @@ To the north, the door that leads to Birkenfeld's room is open."""
                     print("Sorry, what was that?")
                 self.run()
 
-        def move(direction):
+        def move(self,direction):
             for key in self.state.keys():
                 self.global_state[self.name+"_"+key] = self.state[key]
             if direction == "north":
@@ -47,12 +47,12 @@ To the north, the door that leads to Birkenfeld's room is open."""
                 room = SeniorHall(self.global_state,self.inventory)
                 room.run()
 
-        def set_state():
+        def set_state(self):
             self.state = {}
             self.state["took_microscope"] = False
             self.state["took_papers"] = False
 
-        def take_microscope():
+        def take_microscope(self):
             if not self.state["took_microscope"]:
                 print("Microscope taken. It's soaked and seems to be damaged.")
                 self.state["took_microscope"] = True
@@ -60,7 +60,7 @@ To the north, the door that leads to Birkenfeld's room is open."""
             else:
                 print("You've already taken the microscope.")
 
-        def take_papers():
+        def take_papers(self):
             if not self.state["took_papers"]:
                 print("Papers taken. They are soaked and on the verge of disintegrating.")
                 self.state["took_papers"] = True
@@ -81,10 +81,10 @@ To the north, the door that leads to Birkenfeld's room is open."""
             print(self.description())
             self.run()
 
-        def run():
+        def run(self):
             self.route(input(">>"))
 
-        def route(command):
+        def route(self,command):
             if command in ["go north","go east","go west","go south"]:
                 move(command.split(" ")[1])
             else:
@@ -97,7 +97,7 @@ To the north, the door that leads to Birkenfeld's room is open."""
                     print("Sorry, what was that?")
                 self.run()
 
-        def move(direction):
+        def move(self,direction):
             for key in self.state.keys():
                 self.global_state[self.name+"_"+key] = self.state[key]
             if direction == "north":
@@ -111,5 +111,5 @@ To the north, the door that leads to Birkenfeld's room is open."""
                 room = SeniorHall(self.global_state,self.inventory)
                 room.run()
 
-        def set_state():
+        def set_state(self):
             self.state = {}
