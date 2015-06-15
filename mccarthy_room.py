@@ -13,16 +13,16 @@ class MccarthyRoom:
 
     def route(self,command):
         if command in ["exit","exit room"]:
-            move(command.split(" ")[1])
+            self.move(command.split(" ")[1])
         else:
             if command in ["talk to mccarthy","speak with mccarthy","speak to mccarthy"]:
-                talk_to_mccarthy()
+                self.talk_to_mccarthy()
             elif command in ["look","look around","description"]:
                 print(self.description)
                 if not self.state["took_pickle"]:
                     print("You see a pickle hanging from the ceiling.")
             elif command in ["take pickle","get pickle", "take pickle"]:
-                take_pickle()
+                self.take_pickle()
             else:
                 print("Sorry, what was that?")
             self.run()

@@ -1,7 +1,7 @@
 class ScienceHall:
 
     if self.global_state["floor2_is_flooded"]:
-        def __init__(self,global_state,inventory):
+        def _init_(self,global_state,inventory):
             self.global_state = global_state
             self.inventory = inventory
             self.set_state()
@@ -18,12 +18,12 @@ To the north, the door that leads to Birkenfeld's room is open."""
 
         def route(self,command):
             if command in ["go north","go east","go west","go south"]:
-                move(command.split(" ")[1])
+                self.move(command.split(" ")[1])
             else:
                 if command in ["take microscope","pick up microscope"]:
-                    take_microscope()
+                    self.take_microscope()
                 elif command in ["take lab papers","take papers"]:
-                    take_papers()
+                    self.take_papers()
                 elif command in ["enter room","go to birkenfeld's room","birkenfeld"]:
                     room = Birkenfeld(self.global_state,self.inventory)
                     room.run()
@@ -86,7 +86,7 @@ To the north, the door that leads to Birkenfeld's room is open."""
 
         def route(self,command):
             if command in ["go north","go east","go west","go south"]:
-                move(command.split(" ")[1])
+                self.move(command.split(" ")[1])
             else:
                 elif command in ["enter room","go to birkenfeld's room","birkenfeld"]:
                     room = Birkenfeld(self.global_state,self.inventory)
