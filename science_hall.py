@@ -1,7 +1,7 @@
 class ScienceHall:
 
     if self.global_state["floor2_is_flooded"]:
-        def __init__(self,global_state,inventory):
+        def _init_(self,global_state,inventory):
             self.global_state = global_state
             self.inventory = inventory
             self.set_state()
